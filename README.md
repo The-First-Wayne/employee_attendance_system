@@ -188,26 +188,3 @@ employee_attendance_system/
 ```
 
 ---
-
-## 🌐 Deploying to GitHub
-
-1. Initialize git (if not already initialized):
-   ```bash
-   git init
-   ```
-2. Add files and commit:
-   ```bash
-   git add .
-   git commit -m "Initial commit: Complete Employee Attendance System"
-   ```
-3. Link your GitHub repository and push:
-   ```bash
-   git branch -M main
-   git remote add origin https://github.com/your-username/employee-attendance-system.git
-   git push -u origin main
-   ```
-
----
-
-## 📄 License
-This project is open-source and available under the [MIT License](LICENSE).
