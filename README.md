@@ -136,9 +136,9 @@ CREATE DATABASE attendance_db;
    ```
 
 3. Standalone Demo Mode vs. Live Backend Connection:
-   In `frontend/src/main.jsx`, locate line 7:
-   * **`const USE_MOCK = true;`**: Runs standalone with built-in in-memory mock data (no backend needed).
-   * **`const USE_MOCK = false;`**: Connects to the live FastAPI backend at `http://localhost:8000/api`.
+   In `frontend/src/config/api.config.js`:
+   * **`export const USE_MOCK = true;`**: Runs standalone with built-in in-memory mock data (no backend needed).
+   * **`export const USE_MOCK = false;`**: Connects to the live FastAPI backend at `http://localhost:8000/api`.
 
 4. Start the frontend dev server:
    ```bash
@@ -172,7 +172,7 @@ employee_attendance_system/
 │   ├── app/
 │   │   ├── auth.py          # JWT authentication & password verification helpers
 │   │   ├── database.py      # SQLAlchemy DB session & connection setup
-│   │   ├── main.py          # FastAPI routes, endpoints & Business logic
+│   │   ├── main.py          # FastAPI routes, endpoints & business logic
 │   │   ├── models.py        # SQLAlchemy DB Models (User, Attendance, Leave, Balance)
 │   │   └── schemas.py       # Pydantic Request/Response models
 │   ├── .env.example
@@ -181,8 +181,19 @@ employee_attendance_system/
 │   ├── index.html           # HTML5 Entry Point
 │   ├── package.json         # Node.js dependencies & scripts
 │   └── src/
-│       ├── main.jsx         # React App, Dashboard views, State management & Mock API
-│       └── style.css        # Modular CSS Design System & Theme Tokens
+│       ├── api/
+│       │   └── apiService.js # Unified API layer (Mock & Real backend)
+│       ├── components/      # Shared UI components (Alert, Modal, Badges, Layout)
+│       ├── config/
+│       │   └── api.config.js # Environment & API base configuration
+│       ├── mock/
+│       │   └── mockData.js   # Mock store & seed data logic
+│       ├── pages/           # Auth, Employee, and HR page views
+│       ├── utils/
+│       │   └── formatters.js # Formatting helper functions
+│       ├── App.jsx          # Root application state & role-based routing
+│       ├── main.jsx         # React DOM entry point
+│       └── style.css        # CSS Design System & Theme Tokens
 ├── docker-compose.yml       # MySQL Docker setup
 └── README.md                # Project documentation
 ```
